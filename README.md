@@ -1,178 +1,130 @@
-## TPRM: Vendor Risk Analysis & Fraud Intelligence System 
-Applied to the Fintech & Digital Payments Industry
-- OVERVIEW
+# TPRM: Vendor Risk Analysis & Fraud Intelligence System
 
-Fintech companies rely heavily on third-party vendors payment processors, KYC/KYB providers, cloud infrastructure, and compliance partners. Each relationship introduces risk. Each relationship introduces operational, cybersecurity, financial, and regulatory risk.
-This project simulates how real world risk teams operate: not just identifying risky vendors, but understanding why they are risky, detecting fraud signals, and recommending actionable responses.
-The project is built on 1,000 simulated vendor records, combining SQL-based analytics with an executive Power BI dashboard.
+### Applied to the Fintech & Digital Payments Industry
 
-It aligns with both:
+## Overview
+Organizations across industries rely on third party vendors for technology, infrastructure, professional services, financial services, logistics, compliance, and other critical business functions. Each relationship can introduce operational, cybersecurity, financial, compliance, and reputational risk.
 
-- Nigerian regulatory frameworks (CBN, FATF/GIABA, NDPA)
-- Global standards (PCI-DSS, FCA, GDPR)
-## Why I Built This:
+I built this project to demonstrate how data analytics can support a structured, data driven approach to Third Party Risk Management (TPRM).
 
-Fintech companies today are only as strong as the vendors they trust. Payment processors, KYC providers, cloud hosts, legal partners these third parties sit at the heart of how a fintech operates, and every single one of them introduces risk. The problem is that most organisations have no structured, data driven way to manage that exposure. Vendor decisions get made on gut feel, compliance reviews happen reactively, and fraud signals go undetected until an audit uncovers them or money has already left the building.
-That is the problem this project was built to solve.
-Nearly half the vendor portfolio 48.1% fell into the High or Critical risk tiers. Every single vendor category scored below the 60 points cybersecurity threshold meaning the exposure was not isolated to one area. On the fraud side, 544 vendors were flagged for unusually high contract values, 9 showed round number invoice patterns consistent with fictitious billing, and one onboarding date had 6 vendors registered simultaneously a known signal for synthetic vendor network creation.
-Beyond the findings, what makes this project meaningful is what it enables. Procurement teams get an objective basis for contract decisions. Finance teams get early fraud detection before money leaves the organisation. Leadership gets a clear answer on whether third-party exposure sits within the organisation's risk appetite. And the compliance team gets automated alerts and audit ready documentation so when a regulator comes knocking, the evidence is already there.
+Using 1,000 simulated vendor records, I combined MySQL, SQL risk analysis, fraud indicator screening, data quality validation, and Power BI to assess vendor exposure, identify potential risk indicators, and highlight areas requiring further investigation.
 
-## Tools & Technologies
-- SQL (MySQL)
-- Power BI
-- Excel (for data validation)
-- Data Cleaning & Validation
-- Risk Scoring Models
-- Fraud Detection Analytics
+The project uses a fintech and digital payments environment as the case study context, while the underlying analytical approach can be applied across industries where organizations manage third party relationships, operational risk, compliance requirements, and financial exposure.
 
-This project demonstrates how data can support risk, compliance, and fraud intelligence teams in financial institutions.
+> **Note:** This is a self-directed portfolio project using simulated data. Fraud related results are indicators for further investigation, not confirmed fraud cases.
 
-## Project Structure
+---
 
-```bash
-tprm-vendor-risk-fraud-intelligence/
-│
-├── 01_Database_Setup.sql
-├── 02_Data_Cleaning.sql
-├── 03_Risk_Analysis_Reports.sql
-├── 04_Fraud_Intelligence.sql
-├── 05_Stored_Procedures.sql
-│
-├── TPRM_Dashboard.pbix
-├── TPRM_Fintech_Report_Final.docx
-└── TPRM_Technical_Appendices.docx
+## Key Findings
+
+* **48.1%** of vendors were classified as **High or Critical risk**
+* **47** duplicate audit records identified
+* **544** vendors flagged by the defined high contract value screening rule
+* **9** round number financial anomalies identified
+* **1** bulk onboarding event detected
+* **0** vendors met the defined ghost vendor screening condition
+
+### Risk Distribution
+
+**Low 26% | Medium 25% | High 22% | Critical 23%**
+
+---
+
+## Risk Model
+
+| Risk Dimension   |  Weight |
+| ---------------- | ------: |
+| Cybersecurity    | **50%** |
+| Financial Health | **30%** |
+| Compliance       | **20%** |
+
+Vendors were classified into **Low, Medium, High, and Critical** risk tiers based on the project's weighted assessment model.
+
+---
+
+## What I Built
+
+### SQL Analysis
+
+* Database and relational tables
+* Data cleaning and validation
+* Vendor risk scoring
+* Risk tier analysis
+* Fraud indicator screening
+* Stored procedures for recurring reporting
+
+### Power BI Dashboard
+
+* Executive risk overview
+* Vendor risk distribution
+* Industry/category risk analysis
+* Fraud indicator tracking
+* KPI monitoring
+* Findings and recommendations
+
+---
+
+## Key Fraud Indicator Scenarios
+
+The analysis screened for:
+
+* High contract values
+* Missing country information
+* Bulk vendor onboarding
+* Low risk vendors with high incident counts
+* Round number contract patterns
+* Financial anomaly indicators
+
+These indicators are intended to **prioritize further investigation**, not establish fraud.
+
+---
+
+## Business Value
+
+The analysis demonstrates how organizations could use data to:
+
+* Prioritize high risk vendors
+* Strengthen vendor due diligence
+* Identify data quality weaknesses
+* Flag unusual patterns for investigation
+* Improve risk reporting and decision-making
+
+---
+
+## Tools & Skills
+
+**MySQL | SQL | Power BI | Excel | Data Cleaning | Risk Scoring | Fraud Analytics | TPRM | Risk & Compliance Analysis**
+
+---
+
+## Project Files
+
+```text
+01_Database_Setup.sql
+02_Data_Cleaning.sql
+03_Risk_Analysis_Reports.sql
+04_Fraud_Intelligence.sql
+05_Stored_Procedures.sql
+
+TPRM_Dashboard.pbix
+TPRM_Dashboard.pdf
+TPRM_Fintech_Report_Final.docx
+TPRM_Technical_Appendices.docx
 ```
 
-Key features:
+---
 
-Risk distribution (donut chart)
-Industry criticality (bar chart)
-Vendor tier classification
-Fraud anomaly tracking (horizontal bar chart)
-KPI cards:
-Data quality status
-Regulatory coverage
+## Regulatory & Risk Framework Context
 
-Every visual is directly linked to SQL queries, ensuring full traceability from dashboard to raw data.
+The analysis references relevant Nigerian and international regulatory and risk management frameworks, including:
 
-Project Modules
-## 01 Database Setup
+**CBN | FATF/GIABA | NDPA 2023 | PCI DSS | FCA Operational Resilience | GDPR | ISO 31000**
 
-Two table schema:
+These frameworks provide context for the types of cybersecurity, compliance, data protection, financial crime, operational, and third-party risks considered in the project.
 
-TRPM vendor (KYB data)
-Vendor audit (risk scores)
+---
 
-Fields include:
+## Limitations
 
-- Country
-- Onboarding date
-- Contract value
-- Data access flag
-- Incident count
-## 02 Data Cleaning
-Six step data quality pipeline:
+This project uses simulated data. Risk scores and fraud indicators are designed for analytical demonstration and would require additional validation, external intelligence, and organization-specific risk criteria before production use.
 
-- Referential integrity checks
-- Score validation
-- Null handling
-- Duplicate removal (47 records identified)
-- Category standardisation
-- Future-date validation
-
-
-## 03 Risk Analysis
-
-Developed a weighted vendor risk scoring model:
-
-- Cybersecurity (50%)
-- Financial (30%)
-- Compliance (20%)
-
-Includes:
-
-- Industry risk analysis
-- Audit freshness tracking
-- Remediation mapping for high-risk vendors
-## 04 Fraud Intelligence
-
-Five fraud detection scenarios:
-
-- High contract values: Payment processor overbilling
-- Missing country data: Ghost vendor / AML bypass
-- Bulk onboarding (same date): Synthetic vendor networks
-- Low risk with high incidents:  Risk model manipulation
-- Round number contracts: Fictitious invoicing (Benford’s Law)
-## 05 Stored Procedures
-
-Automated reporting using parameterised procedures:
-
-CALL Get_Industry_Risk_Report('Cloud Provider');
-CALL Get_Top_Vendors(80);
-CALL Get_Compliance_Alerts();
-Key Skills Demonstrated
-SQL (advanced querying, joins, aggregations, stored procedures)
-Data cleaning and validation
-Risk modeling and scoring
-Fraud detection logic
-Power BI dashboard development
-Regulatory awareness (fintech compliance)
-
-
-## Power Bi Dashboard
-## Dashboard Preview
-
-### Page 1 — Executive Overview
-Dashboard Page 1.png
-
-### Page 2 — Findings & Recommendations
-Dashboard page 2.png
-
-The full interactive dashboard is available as:
-- `TPRM_Dashboard.pbix` — open in Power BI Desktop for full interactivity
-- `TPRM_Dashboard.pdf` — static preview, no Power BI required
-
-The Power BI dashboard covers two pages:
-Page 1: Executive Overview
-Portfolio risk distribution, vendor tier classification, average cybersecurity scores by category, fraud anomaly detection summary, and four KPI cards covering compliance alerts, High and Critical exposure, low risk vendors, and total fraud cases. Includes three dropdown slicers which are Risk Status, Category, Risk level and Vendor Tier that filter all visuals simultaneously.
-Page 2: Findings and Recommendations
-Key findings with priority badges, recommendations with timeline badges, and full regulatory framework alignment across CBN, FATF/GIABA, NDPA 2023, PCI-DSS, FCA Operational Resilience, and GDPR.
-
-## Regulatory Alignment 
-
-This framework maps to specific compliance obligations in both the Nigerian and global fintech regulatory environment:
-
-- CBN Risk Based Cybersecurity Framework 
-- FATF / GIABA AML and KYB
-- Nigeria Data Protection Act 2023 (NDPA)
-- PCI-DSS
-- FCA Operational Resilience
-- GDPR
-
-
-## Challenges Encountered
-
-During the development of this project, several technical and analytical challenges were encountered:
-
-- Data Quality Issues
-- Risk Classification Inconsistencies
-- SQL Stored Procedure Execution
-- Data Integration Challenges
-- Dashboard Visualization Challenges
-Some visuals, including the risk distribution chart, initially failed to display correctly due to field mapping and data model issues. Adjustments to relationships and field selections were required.
-
-## Lessons Learned
-
-These challenges strengthened understanding of:
-- Data cleaning and validation
-- SQL debugging and optimization
-- Stored procedures and automation
-- Power BI dashboard development
-- Risk analysis and fraud intelligence reporting
-- Translating technical analysis into business-focused insights
-
-
-Author
-
-Bolaji Olalekan
-- Data & Risk Analyst | TPRM | GRC | Fraud Intelligence | SQL | Power BI | Fintech Compliance
